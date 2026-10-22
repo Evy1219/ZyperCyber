@@ -1,0 +1,620 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Zyper Cyber Commissions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a Roblox Studio script window as the hero, then plain editor-dark sections. Single dark look, colors taken from Studio's script editor. */
+:root {
+  color-scheme: dark;
+  --bg: #12151a;
+  --surface: #191d24;
+  --raise: #222731;
+  --line: #2c323d;
+  --fg: #e7eaef;
+  --muted: #9ca4b1;
+  --accent: #ffc600;
+  --on-accent: #1d1700;
+  --ok: #5bd08a;
+  /* Studio editor syntax colors */
+  --syn-kw: #f86d7c;
+  --syn-str: #adf195;
+  --syn-fn: #84d6f7;
+  --syn-num: #ffc600;
+  --syn-com: #7d8695;
+  --syn-meth: #fdfbac;
+  --editor: #1c2028;
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 96px; }
+
+/* Header */
+header.top {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 16px; padding-block: 24px; border-bottom: 1px solid var(--line);
+}
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.mark-cube { width: 18px; height: 18px; background: var(--accent); border-radius: 3px; transform: rotate(12deg); flex: none; }
+.mark-name { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.06em; }
+nav.links { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; font-size: 15px; }
+nav.links a { text-decoration: none; color: var(--muted); }
+nav.links a:hover { color: var(--fg); }
+.status {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 12px; color: var(--fg);
+  border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
+}
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 25%, transparent); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 56px; align-items: center; padding-top: 24px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+h1 {
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
+  font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: 1.05; margin: 0 0 20px; text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--accent); }
+.lead { font-size: 1.15rem; color: var(--fg); max-width: 34em; margin: 0 0 28px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--body); font-weight: 600; font-size: 15px; text-decoration: none;
+  padding: 12px 20px; border-radius: 6px; border: 1px solid transparent; cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--muted); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.facts strong { color: var(--fg); font-weight: 500; }
+
+/* Script editor */
+.editor { background: var(--editor); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px -30px rgba(0,0,0,0.7); min-width: 0; }
+.editor-bar { display: flex; align-items: stretch; background: var(--surface); border-bottom: 1px solid var(--line); font-size: 13px; }
+.tab { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--editor); border-right: 1px solid var(--line); font-family: var(--mono); color: var(--fg); }
+.tab-icon { width: 12px; height: 14px; border: 1.5px solid var(--syn-fn); border-radius: 2px; position: relative; flex: none; }
+.tab-icon::after { content: ""; position: absolute; left: 2px; right: 2px; top: 3px; height: 1.5px; background: var(--syn-fn); box-shadow: 0 3px 0 var(--syn-fn); }
+.tab-path { padding: 10px 16px; color: var(--syn-com); font-family: var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.code { display: flex; font-family: var(--mono); font-size: 13px; line-height: 1.7; }
+.gutter { margin: 0; padding: 16px 12px 16px 16px; color: #4c5463; text-align: right; user-select: none; font: inherit; border-right: 1px solid var(--line); }
+.code-scroll { overflow-x: auto; min-width: 0; flex: 1; }
+.code-scroll pre { margin: 0; padding: 16px 20px; font: inherit; color: #d4d4d4; tab-size: 4; }
+.k { color: var(--syn-kw); } .s { color: var(--syn-str); } .b { color: var(--syn-fn); }
+.n { color: var(--syn-num); } .c { color: var(--syn-com); } .m { color: var(--syn-meth); }
+
+/* Sections */
+section { display: grid; gap: 32px; scroll-margin-top: 24px; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 3.4vw, 2.3rem); letter-spacing: -0.015em; line-height: 1.15; margin: 0; text-wrap: balance; }
+.sec-note { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 0; }
+.intro { max-width: 62ch; color: var(--muted); margin: -16px 0 0; }
+
+/* Work */
+.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.platform { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.project h3 { font-family: var(--display); font-weight: 500; font-size: 1.35rem; margin: 0; letter-spacing: -0.01em; }
+.project p.desc { margin: 0; color: var(--fg); }
+.apis { display: flex; flex-wrap: wrap; gap: 8px; margin: auto 0 0; padding: 6px 0 0; list-style: none; }
+.apis li { font-family: var(--mono); font-size: 12px; color: var(--syn-fn); background: var(--raise); border-radius: 4px; padding: 3px 8px; }
+
+/* Systems */
+.systems { margin: 0; border-top: 1px solid var(--line); }
+.systems > div { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 8px 32px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.systems dt { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); padding-top: 3px; }
+.systems dd { margin: 0; font-size: 1.05rem; }
+
+/* Pricing */
+.launch {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px;
+  border: 1px dashed color-mix(in srgb, var(--accent) 60%, transparent);
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg));
+  border-radius: 10px; padding: 18px 22px;
+}
+.launch-tag { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent); color: var(--on-accent); border-radius: 4px; padding: 3px 8px; }
+.launch p { margin: 0; flex: 1 1 320px; }
+.tiers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.tier { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.tier-name { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.price { font-family: var(--display); font-weight: 700; font-size: 1.7rem; letter-spacing: -0.02em; margin: 0; font-variant-numeric: tabular-nums; }
+.rbx { font-family: var(--mono); font-size: 12px; color: var(--syn-num); margin: 0; font-variant-numeric: tabular-nums; }
+.tier p.ex { margin: 6px 0 0; color: var(--fg); font-size: 15px; }
+.tier .turn { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+/* Quote builder */
+.qb { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.qform { display: grid; gap: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px; min-width: 0; }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; min-width: 0; }
+legend, .flabel { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; padding: 0; }
+.sizes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.choice { position: relative; display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; background: var(--bg); }
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice span { font-weight: 600; }
+.choice small { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.choice:has(input:checked) { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--bg)); }
+.choice:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.check input { accent-color: var(--accent); width: 18px; height: 18px; margin: 2px 0 0; flex: none; }
+.check small { color: var(--muted); font-family: var(--mono); font-size: 12px; margin-left: 4px; white-space: nowrap; }
+.field { display: grid; gap: 0; }
+.field .flabel { margin-bottom: 8px; }
+.field .hint { text-transform: none; letter-spacing: 0; color: var(--syn-com); }
+textarea, input[type="text"] {
+  width: 100%; font: inherit; font-size: 15px; color: var(--fg); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px;
+}
+textarea { min-height: 96px; resize: vertical; }
+textarea:focus, input[type="text"]:focus { outline: none; border-color: var(--accent); }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+.estimate { background: var(--editor); border: 1px solid var(--line); border-radius: 10px; padding: 28px; display: grid; gap: 14px; position: sticky; top: calc(16px + env(safe-area-inset-top, 0px)); min-width: 0; }
+.est-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0; }
+#usd { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 4.5vw, 2.8rem); letter-spacing: -0.02em; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; display: block; }
+#rbx { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 0; font-variant-numeric: tabular-nums; }
+.est-note { font-size: 14px; color: var(--muted); margin: 0; }
+#msg {
+  margin: 0; padding: 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--fg);
+  white-space: pre-wrap; overflow-wrap: anywhere; max-height: 260px; overflow-y: auto;
+}
+.copy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.copied { font-family: var(--mono); font-size: 12px; color: var(--ok); }
+
+/* Process */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); counter-reset: step; }
+.steps li { counter-increment: step; padding: 22px 24px 22px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; min-width: 0; }
+.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.steps strong { font-size: 1.05rem; }
+.steps span { color: var(--muted); font-size: 15px; }
+
+/* Terms */
+.terms { columns: 2 320px; column-gap: 48px; margin: 0; padding: 0 0 0 18px; color: var(--muted); }
+.terms li { margin-bottom: 10px; break-inside: avoid; }
+.terms li::marker { color: var(--accent); }
+
+/* Contact */
+.contact { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(24px, 5vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+.contact p { margin: 0; color: var(--muted); max-width: 40ch; }
+.contact h2 { margin-bottom: 12px; }
+.handles { display: grid; gap: 12px; }
+.handle { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.handle-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; }
+.handle-value { font-family: var(--mono); font-size: 16px; color: var(--fg); overflow-wrap: anywhere; }
+.handle-value.pending { color: var(--syn-kw); }
+.btn-small { padding: 8px 14px; font-size: 14px; }
+
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .tiers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qb { grid-template-columns: minmax(0, 1fr); }
+  .estimate { position: static; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .wrap { gap: 72px; }
+  .work-grid, .tiers, .sizes, .two { grid-template-columns: minmax(0, 1fr); }
+  .systems > div { grid-template-columns: minmax(0, 1fr); }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .steps li { padding-right: 0; }
+  nav.links .navlink { display: none; }
+  .project, .qform, .estimate { padding: 22px; }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top" aria-label="Zyper Cyber home">
+      <span class="mark-cube" aria-hidden="true"></span>
+      <span class="mark-name">ZYPER CYBER</span>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a class="navlink" href="#work">Work</a>
+      <a class="navlink" href="#pricing">Pricing</a>
+      <a class="navlink" href="#quote">Get a quote</a>
+      <span class="status">Taking commissions</span>
+    </nav>
+  </header>
+
+  <div class="hero" id="top">
+    <div>
+      <p class="eyebrow">Luau scripter for hire</p>
+      <h1>Roblox systems, scripted to <em>ship.</em></h1>
+      <p class="lead">I'm Evan, a Luau scripter working under Zyper Cyber. I build saving, leaderboards, shops, menus and full game loops. You get clean, commented code that you own and can keep building on.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#quote">Price your project</a>
+        <a class="btn btn-ghost" href="#work">See recent builds</a>
+      </div>
+      <ul class="facts">
+        <li><strong>Replies</strong> within 24 hrs</li>
+        <li><strong>Studio days</strong> Mon–Thu ET</li>
+        <li><strong>Pay</strong> PayPal · Cash App · Robux</li>
+      </ul>
+    </div>
+
+    <figure class="editor" style="margin:0" aria-label="Example Luau script: a global leaderboard that saves parts shipped">
+      <div class="editor-bar">
+        <div class="tab"><span class="tab-icon" aria-hidden="true"></span>GlobalLeaderboard</div>
+        <div class="tab-path">ServerScriptService</div>
+      </div>
+      <div class="code">
+<pre class="gutter" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre>
+        <div class="code-scroll"><pre><code><span class="c">-- The Shipper: global leaderboard</span>
+<span class="k">local</span> DataStoreService = <span class="b">game</span>:<span class="m">GetService</span>(<span class="s">"DataStoreService"</span>)
+<span class="k">local</span> Players = <span class="b">game</span>:<span class="m">GetService</span>(<span class="s">"Players"</span>)
+<span class="k">local</span> board = DataStoreService:<span class="m">GetOrderedDataStore</span>(<span class="s">"PartsShipped"</span>)
+
+<span class="k">local function</span> saveShipped(player)
+	<span class="k">local</span> stats = player:<span class="m">FindFirstChild</span>(<span class="s">"leaderstats"</span>)
+	<span class="k">if not</span> stats <span class="k">then return end</span>
+	<span class="k">local</span> ok, err = <span class="b">pcall</span>(<span class="k">function</span>()
+		board:<span class="m">SetAsync</span>(player.UserId, stats.Shipped.Value)
+	<span class="k">end</span>)
+	<span class="k">if not</span> ok <span class="k">then</span> <span class="b">warn</span>(<span class="s">"Save failed:"</span>, err) <span class="k">end</span>
+<span class="k">end</span>
+
+Players.PlayerRemoving:<span class="m">Connect</span>(saveShipped)
+
+<span class="c">-- top 10 shippers across every server</span>
+<span class="k">local</span> top = board:<span class="m">GetSortedAsync</span>(<span class="k">false</span>, <span class="n">10</span>):<span class="m">GetCurrentPage</span>()</code></pre></div>
+      </div>
+    </figure>
+  </div>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="sec-head">
+      <h2 id="work-h">Recent builds</h2>
+      <p class="sec-note">3 Roblox games · 1 Garry's Mod server</p>
+    </div>
+    <div class="work-grid">
+      <article class="project">
+        <p class="platform">Roblox · Factory game</p>
+        <h3>The Shipper</h3>
+        <p class="desc">A single-player conveyor line. Players wire a control cabinet, run the line and ship parts for money and levels. A global leaderboard ranks parts shipped across every player's own server.</p>
+        <ul class="apis"><li>OrderedDataStore</li><li>leaderstats</li><li>level progression</li></ul>
+      </article>
+      <article class="project">
+        <p class="platform">Roblox · Cozy library</p>
+        <h3>Peaceful Library</h3>
+        <p class="desc">An intro menu that opens like a book and slams shut on Play. Shelves of books players can click and write in, each one saved, plus an overhead counter of words written that persists per player.</p>
+        <ul class="apis"><li>DataStoreService</li><li>TweenService</li><li>Highlight</li><li>BillboardGui</li></ul>
+      </article>
+      <article class="project">
+        <p class="platform">Roblox · Horror</p>
+        <h3>Psychological Silence</h3>
+        <p class="desc">Music and ambience zones triggered by player distance, with coroutine-managed playback. Wind ambience, footstep volume control, and Future lighting with post-processing tuned for horror.</p>
+        <ul class="apis"><li>SoundService</li><li>coroutine</li><li>Lighting.Future</li><li>PostEffects</li></ul>
+      </article>
+      <article class="project">
+        <p class="platform">Garry's Mod · DarkRP</p>
+        <h3>Bright RP</h3>
+        <p class="desc">A DarkRP server with custom jobs, categories and shipments, a character selection addon, a prop protection system, and a one-button server restart through the Pterodactyl API.</p>
+        <ul class="apis"><li>GLua</li><li>DarkRP config</li><li>Pterodactyl API</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="sys-h">
+    <div class="sec-head">
+      <h2 id="sys-h">What I script</h2>
+      <p class="sec-note">Not sure it fits? Ask.</p>
+    </div>
+    <dl class="systems">
+      <div><dt>Player data</dt><dd>Stats and inventories that save between sessions, global leaderboards, settings that remember the player</dd></div>
+      <div><dt>Monetization</dt><dd>Game passes with perks, developer products with receipt handling, in-game shops and currencies</dd></div>
+      <div><dt>Interface</dt><dd>Main menus, tweened transitions, shop screens, inventories, overhead name tags and counters</dd></div>
+      <div><dt>World</dt><dd>Clickable and hover-highlighted parts, doors, music and sound zones, lighting setups</dd></div>
+      <div><dt>Game loops</dt><dd>Rounds and lobbies, tycoon and factory progression, levels, XP and unlocks</dd></div>
+      <div><dt>Fixes</dt><dd>Broken scripts, errors in the Output window, data that won't save, buttons that don't fire</dd></div>
+    </dl>
+  </section>
+
+  <section id="pricing" aria-labelledby="price-h">
+    <div class="sec-head">
+      <h2 id="price-h">Pricing</h2>
+      <p class="sec-note">USD · Robux at DevEx rate</p>
+    </div>
+    <p class="intro">Prices are in US dollars. Robux works too, converted at Roblox's DevEx rate of $0.0035 per Robux, so the Robux figure is higher than the dollar one.</p>
+    <div class="launch">
+      <span class="launch-tag">Launch rate</span>
+      <p>My first 3 commissions get <strong>20% off</strong> in exchange for a vouch and permission to show the finished work.</p>
+    </div>
+    <div class="tiers">
+      <article class="tier">
+        <p class="tier-name">Fix &amp; tweak</p>
+        <p class="price">$10–25</p>
+        <p class="rbx">≈ 2,900–7,100 R$</p>
+        <p class="ex">A broken script, a button that won't fire, a value that won't save.</p>
+        <p class="turn">Usually same studio day</p>
+      </article>
+      <article class="tier">
+        <p class="tier-name">Small system</p>
+        <p class="price">$25–60</p>
+        <p class="rbx">≈ 7,100–17,100 R$</p>
+        <p class="ex">A game pass with perks, leaderstats that save, a tweened menu, a music zone.</p>
+        <p class="turn">Usually 1–3 studio days</p>
+      </article>
+      <article class="tier">
+        <p class="tier-name">Medium system</p>
+        <p class="price">$60–150</p>
+        <p class="rbx">≈ 17,100–42,900 R$</p>
+        <p class="ex">A shop with currency and purchases, a global leaderboard, a multi-screen UI flow.</p>
+        <p class="turn">Usually 3–7 studio days</p>
+      </article>
+      <article class="tier">
+        <p class="tier-name">Full game loop</p>
+        <p class="price">from $150</p>
+        <p class="rbx">≈ 42,900 R$ and up</p>
+        <p class="ex">Tycoon or factory progression, rounds and lobbies, levels and unlocks. Quoted after we talk it through.</p>
+        <p class="turn">Split into paid milestones</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="quote" aria-labelledby="quote-h">
+    <div class="sec-head">
+      <h2 id="quote-h">Price your project</h2>
+      <p class="sec-note">Estimate · fixed quote after I read your brief</p>
+    </div>
+    <div class="qb">
+      <form class="qform" id="qform" novalidate>
+        <fieldset>
+          <legend>Size</legend>
+          <div class="sizes">
+            <label class="choice"><input type="radio" name="size" id="size-fix" value="fix"><span>Fix &amp; tweak</span><small>$10–25</small></label>
+            <label class="choice"><input type="radio" name="size" id="size-small" value="small" checked><span>Small system</span><small>$25–60</small></label>
+            <label class="choice"><input type="radio" name="size" id="size-medium" value="medium"><span>Medium system</span><small>$60–150</small></label>
+            <label class="choice"><input type="radio" name="size" id="size-large" value="large"><span>Full game loop</span><small>from $150</small></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Extras</legend>
+          <label class="check"><input type="checkbox" id="x-save" checked><span>Data saves between sessions<small>+$10</small></span></label>
+          <label class="check"><input type="checkbox" id="x-ui"><span>Design the UI too, not just script it<small>+$15</small></span></label>
+          <label class="check"><input type="checkbox" id="x-robux"><span>Robux purchases (game passes or products)<small>+$10</small></span></label>
+          <label class="check"><input type="checkbox" id="x-rush"><span>Rush delivery within 48 hours<small>+25%</small></span></label>
+          <label class="check"><input type="checkbox" id="x-launch" checked><span>Launch rate, I'll leave a vouch<small>−20%</small></span></label>
+        </fieldset>
+        <div class="field">
+          <label class="flabel" for="brief">What should it do? <span class="hint">(example filled in)</span></label>
+          <textarea id="brief">A shop where players spend coins on speed coils. Coins should save when they leave and show on the leaderboard.</textarea>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label class="flabel" for="deadline">Deadline</label>
+            <input type="text" id="deadline" value="Within a week">
+          </div>
+          <div class="field">
+            <label class="flabel" for="handle">Your Discord</label>
+            <input type="text" id="handle" placeholder="your username" autocomplete="off">
+          </div>
+        </div>
+      </form>
+
+      <aside class="estimate" aria-live="polite">
+        <p class="est-label">Estimate</p>
+        <output id="usd" for="qform">$30–$55</output>
+        <p id="rbx">≈ 8,600–15,700 R$ at DevEx rate</p>
+        <p class="est-note">Copy this request and send it to me on Discord. I reply with a fixed price.</p>
+        <pre id="msg"></pre>
+        <div class="copy-row">
+          <button class="btn btn-primary" type="button" id="copy">Copy request</button>
+          <span class="copied" id="copied" hidden>Copied</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <div class="sec-head">
+      <h2 id="how-h">How a commission runs</h2>
+    </div>
+    <ol class="steps">
+      <li><strong>Send your brief</strong><span>What it should do, where it lives in your game, and your deadline.</span></li>
+      <li><strong>Get a fixed quote</strong><span>One price for the agreed scope, usually within a day.</span></li>
+      <li><strong>Pay half to start</strong><span>PayPal or Cash App. Robux at DevEx rate. Jobs under $25 are paid up front.</span></li>
+      <li><strong>Watch it work</strong><span>I send a video of the system running in a test place before delivery.</span></li>
+      <li><strong>Pay the rest, get the files</strong><span>Commented scripts as a model file, or placed directly in your game.</span></li>
+      <li><strong>3 days of free fixes</strong><span>Anything inside the agreed scope that breaks gets fixed at no cost.</span></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="terms-h">
+    <div class="sec-head">
+      <h2 id="terms-h">Terms</h2>
+    </div>
+    <ul class="terms">
+      <li>The quote covers the scope we agree on. New features after work starts are quoted separately.</li>
+      <li>Small changes after delivery are $5 each.</li>
+      <li>You own the code once the final payment clears.</li>
+      <li>I may show short clips of the work unless you ask me not to.</li>
+      <li>If I can't finish, you get your deposit back for the unfinished part.</li>
+      <li>No exploits, scams, or anything against the Roblox Terms of Use.</li>
+    </ul>
+  </section>
+
+  <div class="contact">
+    <div>
+      <h2>Send your brief</h2>
+      <p>DM me on Discord with what you need. Copy a request from the quote builder above to skip the back-and-forth.</p>
+    </div>
+    <div class="handles">
+      <div class="handle">
+        <div><span class="handle-label">Discord</span><span class="handle-value" id="discord-val"></span></div>
+        <button class="btn btn-ghost btn-small" type="button" id="copy-discord">Copy</button>
+      </div>
+      <div class="handle">
+        <div><span class="handle-label">Roblox</span><span class="handle-value" id="roblox-val"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>Zyper Cyber · Roblox scripting commissions</span>
+    <span>Studio days Mon–Thu, Eastern Time</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  // Contact details. Fill these in to replace the pending slots.
+  var CONTACT = { discord: "", roblox: "" };
+
+  var DEVEX = 0.0035;
+  var TIERS = {
+    fix:    { name: "Fix & tweak",    lo: 10,  hi: 25 },
+    small:  { name: "Small system",   lo: 25,  hi: 60 },
+    medium: { name: "Medium system",  lo: 60,  hi: 150 },
+    large:  { name: "Full game loop", lo: 150, hi: null }
+  };
+  var EXTRAS = [
+    { id: "x-save",  label: "Saves player data", add: 10 },
+    { id: "x-ui",    label: "UI design",         add: 15 },
+    { id: "x-robux", label: "Robux purchases",   add: 10 }
+  ];
+
+  function $(id) { return document.getElementById(id); }
+  function round5(n) { return Math.round(n / 5) * 5; }
+  function robux(usd) { return Math.round(usd / DEVEX / 100) * 100; }
+  function fmt(n) { return n.toLocaleString("en-US"); }
+
+  function compute() {
+    var sizeEl = document.querySelector('input[name="size"]:checked');
+    var tier = TIERS[sizeEl ? sizeEl.value : "small"];
+    var add = 0, picked = [];
+    EXTRAS.forEach(function (x) { if ($(x.id).checked) { add += x.add; picked.push(x.label); } });
+    var mult = 1;
+    if ($("x-rush").checked) { mult *= 1.25; picked.push("Rush (48 hrs)"); }
+    var launch = $("x-launch").checked;
+    if (launch) mult *= 0.8;
+    var lo = Math.max(5, round5((tier.lo + add) * mult));
+    var hi = tier.hi === null ? null : Math.max(lo, round5((tier.hi + add) * mult));
+    return { tier: tier, lo: lo, hi: hi, picked: picked, launch: launch };
+  }
+
+  function render() {
+    var r = compute();
+    var usdText = r.hi === null ? "from $" + fmt(r.lo) : "$" + fmt(r.lo) + "–$" + fmt(r.hi);
+    var rbxText = r.hi === null
+      ? "≈ " + fmt(robux(r.lo)) + " R$ and up at DevEx rate"
+      : "≈ " + fmt(robux(r.lo)) + "–" + fmt(robux(r.hi)) + " R$ at DevEx rate";
+    $("usd").textContent = usdText;
+    $("rbx").textContent = rbxText;
+
+    var brief = $("brief").value.trim() || "(describe the system here)";
+    var deadline = $("deadline").value.trim() || "Flexible";
+    var handle = $("handle").value.trim() || "(add your Discord)";
+    var lines = [
+      "Commission request for Zyper Cyber",
+      "Size: " + r.tier.name,
+      "Extras: " + (r.picked.length ? r.picked.join(", ") : "None"),
+      "Estimate shown: " + usdText + (r.launch ? " (launch rate)" : ""),
+      "Deadline: " + deadline,
+      "",
+      "What it should do:",
+      brief,
+      "",
+      "My Discord: " + handle
+    ];
+    $("msg").textContent = lines.join("\n");
+  }
+
+  function selectText(el) {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) {}
+  }
+
+  function flash(el, text) {
+    el.textContent = text;
+    el.hidden = false;
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.hidden = true; }, 2200);
+  }
+
+  $("copy").addEventListener("click", function () {
+    var text = $("msg").textContent;
+    var note = $("copied");
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        flash(note, "Copied. Paste it in a Discord DM.");
+      }, function () {
+        selectText($("msg"));
+        flash(note, "Selected. Press Ctrl+C or Cmd+C to copy.");
+      });
+    } catch (e) {
+      selectText($("msg"));
+      flash(note, "Selected. Press Ctrl+C or Cmd+C to copy.");
+    }
+  });
+
+  function fillHandle(id, value, pendingText) {
+    var el = $(id);
+    if (value) { el.textContent = value; el.classList.remove("pending"); }
+    else { el.textContent = pendingText; el.classList.add("pending"); }
+  }
+  fillHandle("discord-val", CONTACT.discord, "username coming soon");
+  fillHandle("roblox-val", CONTACT.roblox, "profile coming soon");
+
+  $("copy-discord").addEventListener("click", function () {
+    var el = $("discord-val");
+    if (!CONTACT.discord) return;
+    try {
+      navigator.clipboard.writeText(CONTACT.discord).then(function () {
+        $("copy-discord").textContent = "Copied";
+      }, function () { selectText(el); });
+    } catch (e) { selectText(el); }
+  });
+  if (!CONTACT.discord) $("copy-discord").hidden = true;
+
+  $("qform").addEventListener("submit", function (e) { e.preventDefault(); });
+  $("qform").addEventListener("input", render);
+  $("qform").addEventListener("change", render);
+  render();
+})();
+</script>
+
+</body></html>
